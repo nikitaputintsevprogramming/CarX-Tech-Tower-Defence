@@ -43,12 +43,7 @@ public class Freak : MonoBehaviour, ISpawnable, IMovable
             return;
         }
 
-        var translation = _moveTarget.transform.position - transform.position;
-        if (translation.magnitude > _moveSpeed)
-        {
-            translation = translation.normalized * _moveSpeed;
-        }
-        transform.Translate(translation);
+        transform.position = Vector3.Lerp(transform.position, _moveTarget.position, _moveSpeed * Time.deltaTime);
     }
 }
 

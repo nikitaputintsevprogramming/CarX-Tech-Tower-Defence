@@ -11,14 +11,14 @@ public class CannonProjectile : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		var monster = other.gameObject.GetComponent<Monster> ();
+		var monster = other.gameObject.GetComponent<Ogr>();
 		if (monster == null)
 			return;
 
-		monster.m_hp -= m_damage;
-		if (monster.m_hp <= 0) {
-			Destroy (monster.gameObject);
-		}
-		Destroy (gameObject);
+		//monster.m_hp -= m_damage;
+		//if (monster.m_hp <= 0) {
+		//	Destroy (monster.gameObject);
+		//}
+		//Destroy (gameObject);
 	}
 }
