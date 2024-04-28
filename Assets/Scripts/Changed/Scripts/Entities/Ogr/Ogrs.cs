@@ -6,13 +6,11 @@ public class Ogrs : Entities
 {
     [SerializeField] private Ogr entityPrefab;
 
-    public override ISpawnable GetEntity(Vector3 position)
+    public override ISpawnable GetEntity()
     {
-        //Создаем префаб и получаем Entity компонент
-        GameObject instance = Instantiate(entityPrefab.gameObject, position, Quaternion.identity);
+        GameObject instance = Instantiate(entityPrefab.gameObject, entityPrefab.spawnPlace.position, Quaternion.identity);
         Ogr newEntity = instance.GetComponent<Ogr>();
 
-        //Каждая сущность состоит из ее логики
         newEntity.Initialize();
 
         return newEntity;

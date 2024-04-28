@@ -24,7 +24,7 @@ public class TimerActivatorEntities : MonoBehaviour
         if (currentTime > lastSpawnEntityTime + spawnEntityInterval)
         {
             entity = entities[Random.Range(0, entities.Length)];
-            entity.GetEntity(new Vector3(-10, 0, 0));
+            entity.GetEntity();
 
             lastSpawnEntityTime = currentTime;
         }

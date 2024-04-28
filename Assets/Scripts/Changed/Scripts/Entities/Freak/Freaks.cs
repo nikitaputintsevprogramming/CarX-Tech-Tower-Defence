@@ -6,13 +6,11 @@ public class Freaks : Entities
 {
     [SerializeField] private Freak entityPrefab;
 
-    public override ISpawnable GetEntity(Vector3 position)
+    public override ISpawnable GetEntity()
     {
-        //Создаем префаб и получаем Entity компонент
-        GameObject instance = Instantiate(entityPrefab.gameObject, position, Quaternion.identity);
+        GameObject instance = Instantiate(entityPrefab.gameObject, entityPrefab.spawnPlace.position, Quaternion.identity);
         Freak newEntity = instance.GetComponent<Freak>();
 
-        //Каждая сущность состоит из ее логики
         newEntity.Initialize();
 
         return newEntity;
