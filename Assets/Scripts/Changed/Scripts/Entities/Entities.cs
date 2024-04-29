@@ -8,7 +8,7 @@ public abstract class Entities : MonoBehaviour
 
     public string GetLog(ISpawnable spawnEntity)
     {
-        string logMessage = "Entity: created " + spawnEntity.entityName;
+        string logMessage = "Entity: created " + spawnEntity.nameOnSpawn;
         return logMessage;
     }
 }
