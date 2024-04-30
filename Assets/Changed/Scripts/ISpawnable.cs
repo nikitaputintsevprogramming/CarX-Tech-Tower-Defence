@@ -9,3 +9,8 @@ public interface ISpawnable
     public Transform spawnPlace { get; set; }
     public void Initialize();
 }
+
+public interface IShootable : ISpawnable
+{
+    public float rangeToTarget { get; set; }
+}
