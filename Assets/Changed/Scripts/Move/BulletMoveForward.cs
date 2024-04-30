@@ -16,7 +16,7 @@ public class BulletMoveForward : MonoBehaviour, IMovableSimple
 
     public void Move()
     {
-        var translation = transform.forward * _moveSpeed;
+        var translation = new Vector3(0, 0, 1) * _moveSpeed;
         transform.Translate(translation);
     }
 }

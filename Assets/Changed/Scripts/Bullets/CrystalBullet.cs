@@ -18,8 +18,5 @@ public class CrystalBullet : MonoBehaviour, IShootable
     {
         //”никальна€ логика дл€ сущности
         gameObject.name = _entityName;
-
     }
-
-
 }

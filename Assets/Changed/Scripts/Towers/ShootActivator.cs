@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ShootActivator : MonoBehaviour
 {
-    [SerializeField] Towers[] bullets;
+    [SerializeField] Towers[] towers;
 
 
-    private Towers bullet;
+    private Towers tower;
 
     void Update()
     {
@@ -16,10 +16,10 @@ public class ShootActivator : MonoBehaviour
 
     private void ShootActivate()
     {
-        foreach (var bulletCurrent in bullets)
+        foreach (var bulletCurrent in towers)
         {
-            bullet = bulletCurrent;
-            bullet.GetShoot();
+            tower = bulletCurrent;
+            tower.GetShoot();
         }
 
     }

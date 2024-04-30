@@ -18,5 +18,6 @@ public class CanonBullet : MonoBehaviour, IShootable
     {
         //”никальна€ логика дл€ сущности
         gameObject.name = _entityName;
+        gameObject.AddComponent<Rigidbody>();
     }
 }
