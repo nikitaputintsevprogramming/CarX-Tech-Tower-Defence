@@ -17,7 +17,6 @@ public class CanonBullets : Towers
     {
         foreach (var entity in FindObjectsOfType<Hunted>())
         {
-            
             if (bulletPrefab == null || bulletPrefab.spawnPlace == null)
                 break;
 
@@ -42,7 +41,6 @@ public class CanonBullets : Towers
         }
         return null;
     }
-
 
     private void Update()
     {
@@ -72,32 +70,35 @@ public class CanonBullets : Towers
             return;
         }
 
+
+        //print(speedCurEntity);
         var targetRotation = Quaternion.LookRotation(curEntity.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10 * Time.deltaTime);
     }
 
+    private void Deflection()
+    {
 
-    private bool SensorTarget()
+    }
+
+    private Vector3 SensorTarget()
     {
         RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-            Debug.Log("Did Hit");
-            return true;
+            //Debug.Log("Did Hit");
+            return hit.point;
         }
         else
         {
-            return false;
+            return Vector3.zero;
         }
     }
 
     public void OnDrawGizmosSelected()
     {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.red;
+        Gizmos.color = new Color(1f, 0.3f, 0.3f, 0.3f);
         Gizmos.DrawSphere(GameObject.FindGameObjectWithTag("CanonShootPoint").transform.position, bulletPrefab.rangeToTarget);
     }
-
 }
